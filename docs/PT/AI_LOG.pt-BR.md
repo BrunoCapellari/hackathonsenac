@@ -35,9 +35,7 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 - **O que o time aproveitou:** a estrutura do middleware e o fluxo de verificação do token.
 - **O que o time corrigiu ou rejeitou, e por quê:** atualizamos a biblioteca, movemos o segredo para variável de ambiente e incluímos testes. O exemplo de rota foi reescrito para se adequar ao nosso modelo de usuário.
 
-### [data] — [tarefa ou trecho]
+### 23/11/2026 — Correção de branches/repositorio
 
-- **Prompt principal:**
-- **O que a IA gerou:**
-- **O que o time aproveitou:**
-- **O que o time corrigiu ou rejeitou, e por quê:**
+- **Prompt Inicial:** github como pego o conteudo de uma branch e boto em outra
+- **O que a IA gerou:** Passo a passo e ajuda em correção de segunda branch, como apagar
