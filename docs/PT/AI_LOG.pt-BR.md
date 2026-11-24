@@ -39,3 +39,9 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 
 - **Prompt Inicial:** github como pego o conteudo de uma branch e boto em outra
 - **O que a IA gerou:** Passo a passo e ajuda em correção de segunda branch, como apagar
+
+### 23/11/2026 — Correção de branches/repositorio
+
+- **Prompt Inicial:** Estou planejando um aplicativo parecido como o ifood para estabelecimentos ao redor de uma instituição de ensino. O backend sera feito em java, como posso começar a desenvolver para esta aplicação mobile? SEM dar o código completo, me ajude a chegar ao resultado final somente
+- **O que a IA gerou:** Sugestões de ferramentas para usar para o MVP
+- **O que o time aproveitou:** Utilizaremos o Java + Spring Boot para o backend, PostgreSQL para o banco de dados e o React Native + Expo para a interface/aplicativo

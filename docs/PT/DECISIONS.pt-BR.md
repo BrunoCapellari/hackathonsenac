@@ -31,6 +31,11 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 - **Alternativas consideradas:** Python e Node.js
 - **Motivo:** O java acaba se tornando mais sustentavel para projetos grandes
 
+## 24/11/2026 — Escolha de SGDB e front-end
+
+- **Decisão:** Utilizar o PostgreSQL para o banco de dados e react + expo para o front end pois sera uma webview
+- **Motivo:** o PostgreSQL acaba se tornando a opção mais viavel para este tipo de projeto, e o react para tornar a aplicação uma webview.
+
 ## [data] — [título da decisão]
 
 - **Decisão:**
