@@ -1,4 +1,4 @@
-# [Nome do projeto]
+# Na Esquina
 
 [English](README.md) · **Português (Brasil)**
 
@@ -13,8 +13,8 @@ No primeiro dia, adicionem o professor como colaborador do repositório, com o e
 ## Equipe
 
 - **Turma:** TDS — turmas mistas 6570, 6756 e 6863
-- **Tech Lead:**
-- **Responsável pela apresentação:**
+- **Tech Lead: Bruno**
+- **Responsável pela apresentação: Richard**
 - **Integrantes:**
   - Bruno — GitHub
   - Richard — GitHub
@@ -26,11 +26,11 @@ Comércio do bairro — vida no campus e comunidade
 
 ## Problema
 
-(qual problema vocês estão resolvendo, e para quem)
+Falta de informação sobre comércios locais
 
 ## Solução
 
-(o que a aplicação faz e qual é o recorte do MVP)
+Aplicativo focado em informar comércios locais em torno do Senac
 
 ## Stack
 
@@ -50,6 +50,7 @@ Descrevam a organização do repositório. Ajustem o exemplo abaixo à escolha d
 ├── AI_LOG.pt-BR.md
 ├── backend/
 ├── frontend/
+├── data/
 └── docs/
 ```
 
@@ -81,6 +82,6 @@ Descrevam a organização do repositório. Ajustem o exemplo abaixo à escolha d
 
 ## Links
 
-- **Repositório:**
+- **Repositório:https://github.com/BrunoCapellari/hackathonsenac**
 - **Deploy (se houver):**
 - **Board / projeto no GitHub (se houver):**
