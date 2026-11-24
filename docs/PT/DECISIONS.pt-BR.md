@@ -41,3 +41,9 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 - **Decisão:**
 - **Alternativas consideradas:**
 - **Motivo:**
+
+## [data] — [título da decisão]
+
+- **Decisão:**
+- **Alternativas consideradas:**
+- **Motivo:**
