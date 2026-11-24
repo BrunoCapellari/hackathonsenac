@@ -35,6 +35,18 @@ Copy the template below whenever you need a new entry.
 - **What the team kept:** the middleware structure and the token verification flow.
 - **What the team corrected or rejected, and why:** we updated the library, moved the secret to an environment variable and added tests. The sample route was rewritten to fit our user model.
 
+### 24/11/2026 — Front end concept with Figma's AI
+- **Main prompt:** "Make the layout of an app that lists off local businesses near a specific school. The app uses AI as its main tool to list the businesses' products."
+- **What the AI generated:** The main menu of our app, with examples of categories (Food & Drinks, School Supplies, Everyday Essentials, Gifts & More).
+**What the team kept:** Everything, except for the format.
+**What the team corrected or rejected, and why:**  As said previously, the format. The AI made it a desktop application instead of a webview mobile app which is what we were going for, although this is just a concept, it's on me (Felipe) for not have stated that beforehand.
+
+### 24/11/2026 — Correcting front end's format
+- **Main prompt:** "It has to be a webview mobile app."
+- **What the AI generated:** Just adjusted the last app it created to make it a webview mobile app.
+- **What the team kept:** The layout, pretty much everything.
+- **What the team corrected or rejected, and why:** Nothing as we fixed the issue from before.
+
 ### [date] — [task or section]
 
 - **Main prompt:**
