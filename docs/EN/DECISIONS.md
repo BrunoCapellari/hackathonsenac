@@ -25,6 +25,12 @@ Copy the template below whenever you need a new entry.
 - **Alternatives considered:** Java with Spring Boot; Python with FastAPI.
 - **Rationale:** the team is already more familiar with JavaScript, and a one-week deadline favors a stack everyone can contribute to from day one.
 
+## 24/11/2026 — Choice of AI Technology
+
+- **Decision:** Use Ollama with the Qwen 2.5 3B model to integrate artificial intelligence into the Java application.
+- **Alternatives considered:** External AI APIs, such as Gemini and other cloud-based solutions.
+- **Reason:** Ollama allows AI models to run locally, without depending on external services or API keys, making the solution more accessible and suitable for the presentation environment.
+
 ## [date] — [decision title]
 
 - **Decision:**
