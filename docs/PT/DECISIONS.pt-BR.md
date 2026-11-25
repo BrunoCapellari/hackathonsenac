@@ -36,11 +36,11 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 - **Decisão:** Utilizar o PostgreSQL para o banco de dados e react + expo para o front end pois sera uma webview
 - **Motivo:** o PostgreSQL acaba se tornando a opção mais viavel para este tipo de projeto, e o react para tornar a aplicação uma webview.
 
-## [data] — [título da decisão]
+## 24/11/2026 — Escolha da tecnologia de IA
 
-- **Decisão:**
-- **Alternativas consideradas:**
-- **Motivo:**
+- **Decisão:** Utilizar o Ollama com o modelo Qwen 2.5 3B para integrar inteligência artificial à aplicação Java.
+- **Alternativas consideradas:** APIs externas de IA, como Gemini e outras soluções em nuvem.
+- **Motivo:** O Ollama permite executar modelos de IA localmente, sem depender de serviços externos ou de chaves de API, tornando a solução mais acessível e adequada para o ambiente de apresentação.
 
 ## [data] — [título da decisão]
 
