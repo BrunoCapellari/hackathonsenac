@@ -31,6 +31,12 @@ Copy the template below whenever you need a new entry.
 - **Alternatives considered:** External AI APIs, such as Gemini and other cloud-based solutions.
 - **Reason:** Ollama allows AI models to run locally, without depending on external services or API keys, making the solution more accessible and suitable for the presentation environment.
 
+## 24/11/2026 — Database Design
+
+- **Decision:** Use PostgreSQL with three main tables: users, establishments, and products.
+- **Alternatives considered:** Other relational database management systems.
+- **Reason:** This structure allows users to manage multiple establishments and each establishment to manage its own products, meeting the MVP requirements.
+
 ## [date] — [decision title]
 
 - **Decision:**
