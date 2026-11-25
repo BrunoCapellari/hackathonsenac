@@ -42,6 +42,12 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 - **Alternativas consideradas:** APIs externas de IA, como Gemini e outras soluções em nuvem.
 - **Motivo:** O Ollama permite executar modelos de IA localmente, sem depender de serviços externos ou de chaves de API, tornando a solução mais acessível e adequada para o ambiente de apresentação.
 
+## 24/11/2026 — Modelagem do banco de dados
+
+- **Decisão:** Utilizar PostgreSQL com três tabelas principais: usuários, estabelecimentos e produtos.
+- **Alternativas consideradas:** Outros sistemas de gerenciamento de banco de dados relacionais.
+- **Motivo:** A estrutura permite relacionar lojistas aos seus estabelecimentos e cada estabelecimento aos seus produtos, atendendo às necessidades do MVP.
+
 ## [data] — [título da decisão]
 
 - **Decisão:**

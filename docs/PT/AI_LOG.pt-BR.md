@@ -28,6 +28,12 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 
 ## Registro
 
+### 25/11/2026 — Integração Java com PostgreSQL e cadastro de usuários
+- **Prompt principal:** "Quero fazer um código de teste para conectar o Java ao PostgreSQL e realizar o cadastro de usuários."
+- **O que a IA gerou:** Um exemplo de aplicação Java utilizando Maven e JDBC, com a biblioteca PostgreSQL, conexão por meio de DriverManager e inserção de usuários utilizando PreparedStatement.
+- **O que o time aproveitou:** A estrutura de conexão entre Java e PostgreSQL, a configuração da dependência JDBC no pom.xml e o processo de cadastro de usuários na tabela usuarios. O teste confirmou que a aplicação Java consegue inserir registros no banco de dados.
+- **O que o time corrigiu ou rejeitou, e por quê:** O primeiro exemplo armazenava a senha diretamente no banco, sem hash. Essa abordagem não será utilizada na versão definitiva. O backend deverá utilizar BCrypt para proteger as senhas e variáveis de ambiente para armazenar as credenciais de conexão.
+
 ### 24/11/2026 — Teste de integração de IA com Java
 
 - **Prompt principal:** Testar a possibilidade de integrar uma inteligência artificial a uma aplicação Java, permitindo enviar perguntas e receber respostas por meio de código Java.

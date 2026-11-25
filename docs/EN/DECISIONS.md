@@ -19,6 +19,12 @@ Copy the template below whenever you need a new entry.
 - **Rationale:**
 ```
 
+## 25/11/2026 — Password Security and Database Credentials
+
+- **Decision:** Use BCrypt to hash user passwords before storing them in PostgreSQL. Store database connection credentials in environment variables instead of hardcoding them in the source code.
+- **Alternatives considered:** Storing passwords as plain text and hardcoding database credentials.
+- **Reason:** Password hashing improves user data security, while environment variables prevent sensitive credentials from being exposed in the source code or GitHub repository.
+
 ## 23/11/2026 — Back-end stack choice (example)
 
 - **Decision:** use Node.js with Express on the back-end.
