@@ -42,6 +42,17 @@ Copy the template below whenever you need a new entry.
 - **What the team kept:** the middleware structure and the token verification flow.
 - **What the team corrected or rejected, and why:** we updated the library, moved the secret to an environment variable and added tests. The sample route was rewritten to fit our user model.
 
+### 23/11/2026 — Branch/Repository fix
+
+- **Main prompt:** "Github how do I take one branch's content and insert it into another."
+- **What the AI generated:** Step-by-step guide and help on transferring branch content.
+
+### 23/11/2026 — Help with developing the app
+
+- **Main prompt:** "I'm planning an app that's similar to Ifood for business around an education institute. The BackEnd will be made with Java, how can I start developing this application for mobile? WITHOUT giving me the full code, only help me with reaching the end goal." 
+- **What the AI generated:** Suggestions of tools to use for the MVP.
+- **What the team kept:** We will use Java + Spring Boot for BackEnd, PostgreSQL for the database and React Native + Expo for the interface/app.
+
 ### 24/11/2026 — Front end concept with Figma's AI
 - **Main prompt:** "Make the layout of an app that lists off local businesses near a specific school. The app uses AI as its main tool to list the businesses' products."
 - **What the AI generated:** The main menu of our app, with examples of categories (Food & Drinks, School Supplies, Everyday Essentials, Gifts & More).
