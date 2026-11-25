@@ -37,6 +37,17 @@ Copy the template below whenever you need a new entry.
 - **Rationale:** PostgreSQL is a more viable option for this project, And React to turn it into webview.
 
 - 
+## 24/11/2026 — Choice of AI Technology
+
+- **Decision:** Use Ollama with the Qwen 2.5 3B model to integrate artificial intelligence into the Java application.
+- **Alternatives considered:** External AI APIs, such as Gemini and other cloud-based solutions.
+- **Reason:** Ollama allows AI models to run locally, without depending on external services or API keys, making the solution more accessible and suitable for the presentation environment.
+
+## 24/11/2026 — Database Design
+
+- **Decision:** Use PostgreSQL with three main tables: users, establishments, and products.
+- **Alternatives considered:** Other relational database management systems.
+- **Reason:** This structure allows users to manage multiple establishments and each establishment to manage its own products, meeting the MVP requirements.
 
 ## [date] — [decision title]
 
