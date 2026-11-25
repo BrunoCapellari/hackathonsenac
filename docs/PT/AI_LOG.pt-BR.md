@@ -40,8 +40,20 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 - **Prompt Inicial:** github como pego o conteudo de uma branch e boto em outra
 - **O que a IA gerou:** Passo a passo e ajuda em correção de segunda branch, como apagar
 
-### 23/11/2026 — Correção de branches/repositorio
+### 23/11/2026 — Ajuda com o desenvolvimento do APP
 
 - **Prompt Inicial:** Estou planejando um aplicativo parecido como o ifood para estabelecimentos ao redor de uma instituição de ensino. O backend sera feito em java, como posso começar a desenvolver para esta aplicação mobile? SEM dar o código completo, me ajude a chegar ao resultado final somente
 - **O que a IA gerou:** Sugestões de ferramentas para usar para o MVP
 - **O que o time aproveitou:** Utilizaremos o Java + Spring Boot para o backend, PostgreSQL para o banco de dados e o React Native + Expo para a interface/aplicativo
+
+  ### 24/11/2026 — Conceito do Front End com a IA do Figma
+- **Prompt principal:** "Faça o layout de um aplicativo que apresenta negócios locais perto de uma instituição especifica. O aplicativo usa IA como sua ferramenta principal para apresentar todos os negócios locais e seus produtos/serviços.
+- **O que a IA gerou:** O menu principal do nosso aplicativo, com exemplos de categorias (Comidas & Bebidas, Recursos Escolares, Itens do Dia-a-Dia, Presentes & mais.
+- **O que o time aproveitou:** O layout, menos o formato (já que deve ser webview, não um app de desktop).
+- **O que o time corrigiu ou rejeitou, e por quê:** Como dito antes, o formato. A IA fez um aplicativo de desktop ao invés de um aplicativo mobile webview, que é o que nos queremos fazer, mesmo que seja apenas um esboço, eu (Felipe) que cometi o erro por não ter especificado o formato.
+
+### 24/11/2026 — Corrigindo o formato do Front End
+- **Prompt principal:** "Tem que ser um app mobile webview."
+- **O que a IA gerou:** Apenas ajustou o layout do aplicativo para ser um webview.
+- **O que o time aproveitou:** O layout, basicamente tudo.
+- **O que o time corrigiu ou rejeitou, e por quê:** Nada, já que o erro já foi corrigido.
