@@ -28,6 +28,13 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 
 ## Registro
 
+### 24/11/2026 — Teste de integração de IA com Java
+
+- **Prompt principal:** Testar a possibilidade de integrar uma inteligência artificial a uma aplicação Java, permitindo enviar perguntas e receber respostas por meio de código Java.
+- **O que a IA gerou:** Exemplos de código Java utilizando requisições HTTP para conectar a aplicação a modelos de inteligência artificial, inicialmente pelo Google Gemini e posteriormente pelo Ollama.
+- **O que o time aproveitou:** O conhecimento adquirido sobre integração de APIs, requisições HTTP, utilização do HttpClient do Java 21 e execução de modelos locais com Ollama e Qwen 2.5 3B.
+- **O que o time corrigiu ou rejeitou, e por quê:** A integração com o Google Gemini foi abandonada devido a problemas de disponibilidade e instabilidade durante os testes. A alternativa com Ollama foi utilizada para concluir o experimento e comprovar que é possível conectar uma IA local a uma aplicação Java.
+
 ### 24/11/2026 — Autenticação JWT (exemplo)
 
 - **Prompt principal:** "Gere um middleware de autenticação JWT em Node.js/Express, com tratamento de token expirado e uma rota protegida de exemplo."

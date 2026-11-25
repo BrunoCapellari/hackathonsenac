@@ -57,7 +57,15 @@ Describe how the repository is organized. Adjust the example below to the team's
 
 ### Prerequisites
 
-(language versions, package managers, databases, etc.)
+Java JDK 21: application execution.
+
+Apache Maven 3.9+: project compilation.
+
+Ollama: local AI execution.
+
+Qwen 2.5 3B: AI model used by the system.
+
+
 
 ### Back-end
 
