@@ -25,6 +25,19 @@ Copy the template below whenever you need a new entry.
 - **Alternatives considered:** Java with Spring Boot; Python with FastAPI.
 - **Rationale:** the team is already more familiar with JavaScript, and a one-week deadline favors a stack everyone can contribute to from day one.
 
+## 24/11/2026 — Language of choice for Back-End
+
+- **Decision:** Use JavaScript for back-end.
+- **Alternatives considered:** Python & Node.js
+- **Rationale:** Java is more sustainable for large projects.
+
+- ## 24/11/2026 — Choice of SGDB and Front-End
+
+- **Decision:** Use PostgreSQL for database and React + Expo since it'll be a webview
+- **Rationale:** PostgreSQL is a more viable option for this project, And React to turn it into webview.
+
+- 
+
 ## [date] — [decision title]
 
 - **Decision:**
