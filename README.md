@@ -1,4 +1,4 @@
-# [Project name]
+# Na Esquina
 
 **English** · [Português (Brasil)](README.pt-BR.md)
 
@@ -13,8 +13,8 @@ On the first day, add the instructor as a repository collaborator, using the ema
 ## Team
 
 - **Class:** TDS — mixed groups 6570, 6756, and 6863
-- **Tech Lead:**
-- **Presentation lead:**
+- **Tech Lead: Bruno**
+- **Presentation lead: Richard**
 - **Members:**
   - Bruno — GitHub
   - Richard — GitHub
@@ -26,11 +26,11 @@ Neighborhood showcase (Comércio do bairro) — campus life and community
 
 ## Problem
 
-(what problem you are solving, and for whom)
+Lack of information about local commerce
 
 ## Solution
 
-(what the application does and what the MVP covers)
+App focused in informing about local stores around Senac
 
 ## Stack
 
