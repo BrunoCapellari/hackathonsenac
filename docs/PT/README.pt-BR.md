@@ -18,7 +18,7 @@ No primeiro dia, adicionem o professor como colaborador do repositório, com o e
 - **Integrantes:**
   - Bruno — GitHub
   - Richard — GitHub
-  - Felipe (6863) — GitHub
+  - Felipe — GitHub
 
 ## Tema / área
 
@@ -44,14 +44,14 @@ Descrevam a organização do repositório. Ajustem o exemplo abaixo à escolha d
 /
 ├── README.md
 ├── README.pt-BR.md
-├── DECISIONS.md
-├── DECISIONS.pt-BR.md
-├── AI_LOG.md
-├── AI_LOG.pt-BR.md
 ├── backend/
 ├── frontend/
 ├── data/
 └── docs/
+  ├── DECISIONS.md
+  ├── DECISIONS.pt-BR.md
+  ├── AI_LOG.md
+  ├── AI_LOG.pt-BR.md
 ```
 
 ## Como rodar
