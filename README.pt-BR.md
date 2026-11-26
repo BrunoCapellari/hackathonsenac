@@ -58,7 +58,13 @@ Descrevam a organização do repositório. Ajustem o exemplo abaixo à escolha d
 
 ### Pré-requisitos
 
-(versões de linguagem, gerenciadores de pacote, banco de dados etc.)
+Java JDK 21: execução da aplicação.
+
+Apache Maven 3.9+: compilação do projeto.
+
+Ollama: execução local da IA.
+
+Qwen 2.5 3B: modelo utilizado pelo sistema.
 
 ### Back-end
 
