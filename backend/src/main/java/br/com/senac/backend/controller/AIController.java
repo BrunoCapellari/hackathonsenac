@@ -1,8 +1,8 @@
 package br.com.senac.backend.controller;
 
+import br.com.senac.backend.dto.AIRequestDTO;
+import br.com.senac.backend.dto.AIResponseDTO;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/ai")
@@ -10,11 +10,14 @@ import java.util.Map;
 public class AIController {
 
     @PostMapping("/generate-description")
-    public Map<String, String> generate() {
+    public AIResponseDTO generate(
+            @RequestBody AIRequestDTO request) {
 
-        return Map.of(
-            "description",
-            "Produto artesanal elaborado com ingredientes selecionados."
+        return new AIResponseDTO(
+                "Descrição gerada para "
+                        + request.productName()
+                        + ". "
+                        + request.notes()
         );
     }
 }
