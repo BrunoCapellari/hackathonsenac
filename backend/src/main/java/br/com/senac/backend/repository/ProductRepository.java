@@ -16,16 +16,12 @@ public class ProductRepository {
         products.add(
             new Product(
                 1L,
-                "Xis Salada",
-                18.90
-            )
-        );
-
-        products.add(
-            new Product(
-                2L,
-                "Pastel de Carne",
-                12.50
+                "Pão Francês",
+                1.00,
+                "Pão fresco",
+                "Pão francês assado diariamente.",
+                "pao.jpg",
+                1L
             )
         );
     }
@@ -44,5 +40,13 @@ public class ProductRepository {
                 .filter(product -> product.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public List<Product> findByBusinessId(Long businessId) {
+
+        return products.stream()
+                .filter(product ->
+                        product.getBusinessId().equals(businessId))
+                .toList();
     }
 }

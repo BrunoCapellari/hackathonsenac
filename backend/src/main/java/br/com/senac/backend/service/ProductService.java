@@ -19,11 +19,15 @@ public class ProductService {
         return repository.findAll();
     }
 
+    public Product findById(Long id) {
+        return repository.findById(id);
+    }
+
     public Product save(Product product) {
         return repository.save(product);
     }
 
-    public Product findById(Long id) {
-        return repository.findById(id);
+    public List<Product> findByBusinessId(Long businessId) {
+        return repository.findByBusinessId(businessId);
     }
 }
