@@ -58,6 +58,44 @@ Copy the template below whenever you need a new entry.
 - **What the team kept:** The layout, pretty much everything.
 - **What the team corrected or rejected, and why:** Nothing as we fixed the issue from before.
 
+### 24/11/2026 — AI Integration Test with Java
+
+- **Main Prompt:** Test the possibility of integrating artificial intelligence into a Java application, allowing users to send questions and receive responses through Java code.
+- **What the AI Generated:** Java code examples using HTTP requests to connect the application to AI models, initially through Google Gemini and later through Ollama.
+- **What the Team Used:** The knowledge gained about API integration, HTTP requests, the Java 21 HttpClient, and running local AI models using Ollama and Qwen 2.5 3B.
+- **What the Team Corrected or Rejected, and Why:** The Google Gemini integration was abandoned due to availability issues and instability during testing. The Ollama alternative was used to complete the experiment and demonstrate that it is possible to connect a local AI model to a Java application.
+
+### 25/11/2026 — Initial React + Expo Frontend Architecture & Senac Canoas Adaptation
+
+- **Main prompt:** Create a React + Expo frontend webview app based on the UI reference image, localized to Senac Canoas (R. Mathias Velho, 255 - Centro, Canoas - RS) instead of the mockup's location, using AI to display products sold by nearby local businesses and aligned with the uploaded Spring Boot backend (`backend.zip`)[cite: 1, 2, 3].
+- **What the AI generated:** Generated a modular React Native + Expo TypeScript frontend (`colors.ts`, `api.ts`, `HeaderBar.tsx`, `AISearchBanner.tsx`, `CategoryPills.tsx`, `BusinessCard.tsx`, `BottomNavBar.tsx`, `MapWebViewModal.tsx`, and `App.tsx`) featuring a forest-green AI search banner, local Senac Canoas business/product fallback data, Spring Boot REST API integration, and an interactive OpenStreetMap WebView modal.
+- **What the team kept:** Everything except most stores and map accuracy.
+- **What the team corrected or rejected, and why:** The stores and map accuracy, which will be updated soon as 2 of the businesses are made up.
+
+### 25/11/2026 — Spring Boot Backend Connection & File Location
+
+- **Main prompt:** Asked how to connect the frontend to the backend ("how do i do this") and where the referenced backend files were located ("where are these").
+- **What the AI generated:** Explained how to enable CORS (`@CrossOrigin`), align the DTOs and REST endpoints (`/api/businesses`, `/api/products`, `/api/ai/search`), configure `EXPO_PUBLIC_API_URL`, and identified the exact paths inside `src/main/java/br/com/senac/backend/` (`dto/`, `controller/`, and `service/`)[cite: 3].
+
+### 25/11/2026 — Project Folder Setup & Single-File `App.tsx` Consolidation
+
+- **Main prompt:** Noted that the default Expo project did not match the multi-folder layout ("its not looking like this") and asked how to put everything inside `App.tsx` ("how do i do this inside app.tsx" / "so i just replace everything inside of app.tsx with this?").
+- **What the AI generated:** Explained how to create the `src/` subfolders manually and subsequently provided a consolidated, single-file `App.tsx` containing all theme constants, DTO interfaces, API/fallback services, UI components, and the WebView map modal.
+- **What the team corrected or rejected, and why:** The code inside `app.tsx` as it wasn't loading the webview properly.
+
+### 25/11/2026 — Java and PostgreSQL Integration and User Registration
+
+- **Main prompt:** "I want to create a test program to connect Java to PostgreSQL and register users."
+- **What the AI generated:** An example Java application using Maven and JDBC, with the PostgreSQL driver, a connection established through `DriverManager`, and user insertion using `PreparedStatement`.
+- **What the team used:** The Java and PostgreSQL connection structure, the JDBC dependency configuration in `pom.xml`, and the process of registering users in the `usuarios` table. The test confirmed that the Java application can successfully insert records into the database.
+- **What the team corrected or rejected, and why:** The initial example stored passwords directly in the database without hashing. This approach will not be used in the final implementation. The backend will use BCrypt to protect passwords and environment variables to store database connection credentials.
+
+### 26/11/2026 — TypeScript `<StatusBar>` Fix & Expo Execution Troubleshooting
+
+- **Main prompt:** Shared a TypeScript overload error on `<StatusBar backgroundColor="{...}"/>`, asked how to run the project again ("how do i execute this again"), and shared a `ConfigError` screenshot showing `npx expo start --web` failing due to a missing `package.json` in the root `hackathonsenac` directory[cite: 4, 5, 6].
+- **What the AI generated:** Instructed removing the deprecated `backgroundColor` prop from `<StatusBar>` in `App.tsx`[cite: 4] and navigating into the `frontend/senac-nearby` subdirectory (`cd frontend/senac-nearby`) before running `npx expo start --web`[cite: 5, 6].
+- **What the team corrected or rejected, and why:** Fixed the webview not running due to a missing `package.json` in the root `hackathonsenac`.
+
 ### [date] — [task or section]
 
 - **Main prompt:**
