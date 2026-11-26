@@ -28,6 +28,20 @@ Copy the template below whenever you need a new entry.
 
 ## Log
 
+### 25/11/2026 — Java and PostgreSQL Integration and User Registration
+
+- **Main prompt:** "I want to create a test program to connect Java to PostgreSQL and register users."
+- **What the AI generated:** An example Java application using Maven and JDBC, with the PostgreSQL driver, a connection established through `DriverManager`, and user insertion using `PreparedStatement`.
+- **What the team used:** The Java and PostgreSQL connection structure, the JDBC dependency configuration in `pom.xml`, and the process of registering users in the `usuarios` table. The test confirmed that the Java application can successfully insert records into the database.
+- **What the team corrected or rejected, and why:** The initial example stored passwords directly in the database without hashing. This approach will not be used in the final implementation. The backend will use BCrypt to protect passwords and environment variables to store database connection credentials.
+
+### 24/11/2026 — AI Integration Test with Java
+
+- **Main Prompt:** Test the possibility of integrating artificial intelligence into a Java application, allowing users to send questions and receive responses through Java code.
+- **What the AI Generated:** Java code examples using HTTP requests to connect the application to AI models, initially through Google Gemini and later through Ollama.
+- **What the Team Used:** The knowledge gained about API integration, HTTP requests, the Java 21 HttpClient, and running local AI models using Ollama and Qwen 2.5 3B.
+- **What the Team Corrected or Rejected, and Why:** The Google Gemini integration was abandoned due to availability issues and instability during testing. The Ollama alternative was used to complete the experiment and demonstrate that it is possible to connect a local AI model to a Java application.
+
 ### 24/11/2026 — JWT authentication (example)
 
 - **Main prompt:** "Generate a JWT authentication middleware in Node.js/Express, with expired-token handling and a sample protected route."

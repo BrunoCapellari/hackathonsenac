@@ -1,5 +1,7 @@
 package br.com.senac.backend.controller;
 
+import br.com.senac.backend.dto.BusinessRequestDTO;
+import br.com.senac.backend.dto.BusinessResponseDTO;
 import br.com.senac.backend.model.Business;
 import br.com.senac.backend.model.Product;
 import br.com.senac.backend.service.BusinessService;
@@ -43,9 +45,26 @@ public class BusinessController {
     }
 
     @PostMapping
-    public Business save(
-            @RequestBody Business business) {
+    public BusinessResponseDTO save(
+            @RequestBody BusinessRequestDTO dto) {
 
-        return businessService.save(business);
+        Business business = new Business();
+
+        business.setId(System.currentTimeMillis());
+
+        business.setName(dto.name());
+        business.setCategory(dto.category());
+        business.setAddress(dto.address());
+        business.setOpeningHours(dto.openingHours());
+
+        Business saved = businessService.save(business);
+
+        return new BusinessResponseDTO(
+                saved.getId(),
+                saved.getName(),
+                saved.getCategory(),
+                saved.getAddress(),
+                saved.getOpeningHours()
+        );
     }
 }

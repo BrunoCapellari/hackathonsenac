@@ -19,6 +19,18 @@ Copy the template below whenever you need a new entry.
 - **Rationale:**
 ```
 
+## 25/11/2026 — Text-Based AI Product Descriptions
+
+- **Decision:** The AI will generate product descriptions using only textual information provided by the merchant. Image analysis is excluded from the MVP. Product photos may still be registered and displayed in the application, but they will not be processed by the AI.
+- **Alternatives considered:** Generating descriptions from product photos and text, or using only text input.
+- **Reason:** Text-based generation reduces implementation complexity and development time while keeping the AI feature aligned with the MVP deadline. Merchant review remains mandatory before publication.
+
+## 25/11/2026 — Password Security and Database Credentials
+
+- **Decision:** Use BCrypt to hash user passwords before storing them in PostgreSQL. Store database connection credentials in environment variables instead of hardcoding them in the source code.
+- **Alternatives considered:** Storing passwords as plain text and hardcoding database credentials.
+- **Reason:** Password hashing improves user data security, while environment variables prevent sensitive credentials from being exposed in the source code or GitHub repository.
+
 ## 23/11/2026 — Back-end stack choice (example)
 
 - **Decision:** use Node.js with Express on the back-end.

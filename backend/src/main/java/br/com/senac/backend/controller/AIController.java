@@ -1,8 +1,16 @@
+
 package br.com.senac.backend.controller;
 
-import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import br.com.senac.backend.dto.GenerateDescriptionRequest;
+import br.com.senac.backend.service.AIService;
+
+import jakarta.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -10,12 +18,50 @@ import java.util.Map;
 @CrossOrigin("*")
 public class AIController {
 
-    @PostMapping("/generate-description")
-    public Map<String, String> generate() {
+    private final AIService aiService;
 
-        return Map.of(
-            "description",
-            "Produto artesanal elaborado com ingredientes selecionados."
-        );
+    public AIController(AIService aiService) {
+        this.aiService = aiService;
     }
+
+    @PostMapping("/generate-description")
+    public ResponseEntity<Map<String, String>> generate(
+        @Valid @RequestBody GenerateDescriptionRequest request
+    ) {
+
+        String description = aiService.generateDescription(
+            request.name(),
+            request.price(),
+            request.notes()
+        );
+
+        return ResponseEntity.ok()
+        .contentType(new MediaType(
+                "application",
+                "json",
+                java.nio.charset.StandardCharsets.UTF_8
+        ))
+        .body(Map.of("description", description));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+public ResponseEntity<Map<String, String>> handleBadRequest(
+    IllegalArgumentException e
+) {
+    return ResponseEntity.badRequest().body(
+        Map.of("error", e.getMessage())
+    );
+}
+
+@ExceptionHandler(IllegalStateException.class)
+public ResponseEntity<Map<String, String>> handleAIError(
+    IllegalStateException e
+) {
+    return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(
+        Map.of(
+            "error",
+            "Serviço de IA indisponível ou retornou uma resposta inválida."
+        )
+    );
+}
 }

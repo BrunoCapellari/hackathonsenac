@@ -19,6 +19,18 @@ Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
 - **Motivo:**
 ```
 
+## 25/11/2026 — Geração de descrições por IA baseada em texto
+
+- **Decisão:** A IA gerará descrições de produtos utilizando somente as informações textuais fornecidas pelo lojista. A análise de imagens está fora do MVP. As fotos dos produtos ainda poderão ser cadastradas e exibidas no aplicativo, mas não serão processadas pela IA.
+- **Alternativas consideradas:** Gerar descrições a partir de fotos e textos ou utilizar somente informações textuais.
+- **Motivo:** A geração baseada em texto reduz a complexidade da implementação e o tempo de desenvolvimento, mantendo a funcionalidade de IA alinhada ao prazo do MVP. A revisão do lojista continuará obrigatória antes da publicação.
+
+## 25/11/2026 — Segurança de senhas e credenciais do banco de dados
+
+- **Decisão:** Utilizar BCrypt para gerar hashes das senhas dos usuários antes de armazená-las no PostgreSQL. Armazenar as credenciais de conexão com o banco em variáveis de ambiente, em vez de deixá-las diretamente no código-fonte.
+- **Alternativas consideradas:** Armazenar senhas em texto puro e deixar as credenciais do banco diretamente no código.
+- **Motivo:** O hash das senhas aumenta a segurança dos dados dos usuários, enquanto as variáveis de ambiente evitam a exposição de credenciais sensíveis no código-fonte ou no repositório do GitHub.
+
 ## 23/11/2026 — Escolha da stack de back-end (exemplo)
 
 - **Decisão:** usar Node.js com Express no back-end.
