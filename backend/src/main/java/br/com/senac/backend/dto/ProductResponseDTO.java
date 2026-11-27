@@ -1,12 +1,14 @@
 package br.com.senac.backend.dto;
 
+import java.math.BigDecimal;
+
 public record ProductResponseDTO(
 
     Long id,
 
     String name,
 
-    Double price,
+    BigDecimal price,
 
     String notes,
 

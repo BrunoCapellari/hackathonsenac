@@ -11,7 +11,6 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin("*")
 public class ProductController {
 
     private final ProductService service;
@@ -35,8 +34,6 @@ public class ProductController {
             @RequestBody ProductRequestDTO dto) {
 
         Product product = new Product();
-
-        product.setId(System.currentTimeMillis());
 
         product.setName(dto.name());
 

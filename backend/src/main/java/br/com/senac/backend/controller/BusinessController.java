@@ -6,6 +6,7 @@ import br.com.senac.backend.model.Business;
 import br.com.senac.backend.model.Product;
 import br.com.senac.backend.service.BusinessService;
 import br.com.senac.backend.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,6 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/businesses")
-@CrossOrigin("*")
 public class BusinessController {
 
     private final BusinessService businessService;
@@ -46,12 +46,11 @@ public class BusinessController {
 
     @PostMapping
     public BusinessResponseDTO save(
-            @RequestBody BusinessRequestDTO dto) {
+            @Valid @RequestBody BusinessRequestDTO dto) {
 
         Business business = new Business();
 
-        business.setId(System.currentTimeMillis());
-
+        business.setUserId(dto.userId());
         business.setName(dto.name());
         business.setCategory(dto.category());
         business.setAddress(dto.address());
@@ -61,6 +60,7 @@ public class BusinessController {
 
         return new BusinessResponseDTO(
                 saved.getId(),
+                saved.getUserId(),
                 saved.getName(),
                 saved.getCategory(),
                 saved.getAddress(),

@@ -4,6 +4,8 @@ public record BusinessResponseDTO(
 
     Long id,
 
+    Long userId,
+
     String name,
 
     String category,

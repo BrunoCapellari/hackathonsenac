@@ -2,7 +2,9 @@ package br.com.senac.backend.service;
 
 import br.com.senac.backend.model.Product;
 import br.com.senac.backend.repository.ProductRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -20,7 +22,11 @@ public class ProductService {
     }
 
     public Product findById(Long id) {
-        return repository.findById(id);
+        return repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Produto não encontrado"
+                ));
     }
 
     public Product save(Product product) {

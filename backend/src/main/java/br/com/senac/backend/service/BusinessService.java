@@ -3,6 +3,8 @@ package br.com.senac.backend.service;
 import br.com.senac.backend.model.Business;
 import br.com.senac.backend.repository.BusinessRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -20,7 +22,11 @@ public class BusinessService {
     }
 
     public Business findById(Long id) {
-        return repository.findById(id);
+        return repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Empresa não encontrada"
+                ));
     }
 
     public Business save(Business business) {
