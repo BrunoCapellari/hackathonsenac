@@ -57,4 +57,35 @@ public class ProductController {
                 saved.getBusinessId()
         );
     }
+
+    @PutMapping("/{id}")
+public ProductResponseDTO update(
+        @PathVariable Long id,
+        @RequestBody ProductRequestDTO dto) {
+
+    Product product = new Product();
+
+    product.setName(dto.name());
+    product.setPrice(dto.price());
+    product.setNotes(dto.notes());
+    product.setImageUrl(dto.imageUrl());
+    product.setBusinessId(dto.businessId());
+
+    Product updated = service.update(id, product);
+
+    return new ProductResponseDTO(
+            updated.getId(),
+            updated.getName(),
+            updated.getPrice(),
+            updated.getNotes(),
+            updated.getDescription(),
+            updated.getImageUrl(),
+            updated.getBusinessId()
+    );
+}
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+    service.delete(id);
+}
 }

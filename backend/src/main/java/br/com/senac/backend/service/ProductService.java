@@ -36,4 +36,21 @@ public class ProductService {
     public List<Product> findByBusinessId(Long businessId) {
         return repository.findByBusinessId(businessId);
     }
+
+    public Product update(Long id, Product updatedProduct) {
+    Product existing = findById(id);
+    existing.setName(updatedProduct.getName());
+    existing.setPrice(updatedProduct.getPrice());
+    existing.setNotes(updatedProduct.getNotes());
+    existing.setImageUrl(updatedProduct.getImageUrl());
+    existing.setBusinessId(updatedProduct.getBusinessId());
+    return repository.save(existing);
+}
+
+    public void delete(Long id) {
+
+    Product product = findById(id);
+
+    repository.delete(product);
+}
 }
