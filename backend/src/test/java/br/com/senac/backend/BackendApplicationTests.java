@@ -54,15 +54,14 @@ class BackendApplicationTests {
 
 	@Test
 	void savesAndFindsProductsByBusinessFromDatabase() {
-		Product product = new Product(
-				null,
-				"Pão Francês",
-				new BigDecimal("1.00"),
-				"Pão fresco",
-				"Pão francês assado diariamente.",
-				"pao.jpg",
-				1L
-		);
+		Product product = new Product();
+
+		product.setName("Produto Teste");
+		product.setPrice(new BigDecimal("10.00"));
+		product.setNotes("obs");
+		product.setDescription("desc");
+		product.setImageUrl("img");
+		product.setBusinessId(1L);
 
 		Product saved = productRepository.save(product);
 

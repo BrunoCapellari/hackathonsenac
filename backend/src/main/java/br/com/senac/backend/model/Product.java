@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -40,4 +41,16 @@ public class Product {
 
     @Column(name = "estabelecimento_id", nullable = false)
     private Long businessId;
+
+    @Column(name = "descricao_gerada", columnDefinition = "text")
+    private String generatedDescription;
+
+    @Column(name = "descricao_final", columnDefinition = "text")
+    private String finalDescription;
+
+    @Column(name = "publicado")
+    private Boolean published;
+
+    @Column(name = "criado_em")
+    private LocalDateTime createdAt;
 }
