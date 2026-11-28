@@ -41,15 +41,21 @@ class BackendApplicationTests {
 				"Padaria Central",
 				"Padaria",
 				"Centro",
-				"08:00 às 18:00"
+				"08:00 às 18:00",
+				null
 		);
 
 		Business saved = businessRepository.save(business);
+		saved.setImageUrl("https://example.invalid/store.jpg");
+		saved = businessRepository.save(saved);
 
 		assertNotNull(saved.getId());
 		assertEquals("Padaria Central", businessRepository.findById(saved.getId())
 				.orElseThrow()
 				.getName());
+		assertEquals("https://example.invalid/store.jpg", businessRepository.findById(saved.getId())
+				.orElseThrow()
+				.getImageUrl());
 	}
 
 	@Test

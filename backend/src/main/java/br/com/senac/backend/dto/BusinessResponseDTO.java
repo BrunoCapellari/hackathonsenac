@@ -12,6 +12,8 @@ public record BusinessResponseDTO(
 
     String address,
 
-    String openingHours
+    String openingHours,
+
+    String imageUrl
 
 ) {}

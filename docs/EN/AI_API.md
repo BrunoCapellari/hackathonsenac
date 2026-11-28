@@ -1,5 +1,20 @@
 # AI Description API
 
+## Local search endpoint
+
+`POST /api/ai/search`
+
+The frontend sends a natural-language query and the backend combines the establishments and products from PostgreSQL with local Ollama ranking. It also provides a deterministic catalog fallback when Ollama is unavailable.
+
+```json
+{
+  "query": "Lanche rápido até R$ 15",
+  "originLocation": "Senac Canoas"
+}
+```
+
+The response contains a summary and recommended establishments with their products.
+
 ## Endpoint
 
 `POST /api/ai/generate-description`

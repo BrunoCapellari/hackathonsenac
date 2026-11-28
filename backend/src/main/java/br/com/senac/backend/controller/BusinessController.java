@@ -57,6 +57,7 @@ public class BusinessController {
         business.setCategory(dto.category());
         business.setAddress(dto.address());
         business.setOpeningHours(dto.openingHours());
+        business.setImageUrl(dto.imageUrl());
 
         Business saved = businessService.save(business);
 
@@ -66,7 +67,8 @@ public class BusinessController {
                 saved.getName(),
                 saved.getCategory(),
                 saved.getAddress(),
-                saved.getOpeningHours()
+                saved.getOpeningHours(),
+                saved.getImageUrl()
         );
     }
 
@@ -82,6 +84,7 @@ public BusinessResponseDTO update(
     business.setCategory(dto.category());
     business.setAddress(dto.address());
     business.setOpeningHours(dto.openingHours());
+    business.setImageUrl(dto.imageUrl());
 
     Business updated = businessService.update(id, business);
 
@@ -91,7 +94,8 @@ public BusinessResponseDTO update(
             updated.getName(),
             updated.getCategory(),
             updated.getAddress(),
-            updated.getOpeningHours()
+            updated.getOpeningHours(),
+            updated.getImageUrl()
     );
 }
 

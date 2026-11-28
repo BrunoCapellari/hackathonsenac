@@ -16,6 +16,7 @@ CREATE TABLE estabelecimentos (
     categoria VARCHAR(80),
     endereco TEXT,
     horario_funcionamento TEXT,
+    imagem_url TEXT,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

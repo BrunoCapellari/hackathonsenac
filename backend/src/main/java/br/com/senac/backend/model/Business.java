@@ -35,4 +35,7 @@ public class Business {
 
     @Column(name = "horario_funcionamento", columnDefinition = "text")
     private String openingHours;
+
+    @Column(name = "imagem_url", columnDefinition = "text")
+    private String imageUrl;
 }

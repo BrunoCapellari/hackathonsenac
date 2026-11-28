@@ -1,5 +1,20 @@
 # API de Geração de Descrições com IA
 
+## Endpoint de busca local
+
+`POST /api/ai/search`
+
+O frontend envia uma consulta em linguagem natural. O backend combina estabelecimentos e produtos do PostgreSQL com o ranking feito pelo Ollama local. Quando o Ollama não está disponível, é usado um filtro determinístico do catálogo.
+
+```json
+{
+  "query": "Lanche rápido até R$ 15",
+  "originLocation": "Senac Canoas"
+}
+```
+
+A resposta contém um resumo e os estabelecimentos recomendados com seus produtos.
+
 ## Endpoint
 
 `POST /api/ai/generate-description`

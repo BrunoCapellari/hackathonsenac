@@ -4,6 +4,9 @@ package br.com.senac.backend.service;
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
+import br.com.senac.backend.dto.AISearchResponseDTO;
+import br.com.senac.backend.model.Business;
+import br.com.senac.backend.model.Product;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -13,6 +16,7 @@ import org.springframework.web.client.RestClientException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashSet;
 
 @Service
 public class AIService {
@@ -169,5 +173,197 @@ public class AIService {
                 e
             );
         }
+    }
+
+    public AISearchResponseDTO search(
+        String query,
+        String originLocation,
+        List<Business> businesses,
+        List<Product> products
+    ) {
+        String normalizedQuery = query == null ? "" : query.trim();
+        if (normalizedQuery.isBlank()) {
+            throw new IllegalArgumentException("Informe o que você procura.");
+        }
+
+        StringBuilder catalog = new StringBuilder();
+        for (Business business : businesses) {
+            catalog.append("Estabelecimento ")
+                .append(business.getId())
+                .append(" | ")
+                .append(business.getName())
+                .append(" | ")
+                .append(business.getCategory())
+                .append(" | ")
+                .append(business.getAddress())
+                .append(" | Produtos: ");
+
+            products.stream()
+                .filter(product -> business.getId().equals(product.getBusinessId()))
+                .forEach(product -> catalog.append(product.getName())
+                    .append(" R$")
+                    .append(product.getPrice())
+                    .append("; "));
+            catalog.append('\n');
+        }
+
+        LinkedHashSet<Long> rankedIds = rankWithOllama(normalizedQuery, originLocation, catalog.toString());
+        if (rankedIds.isEmpty()) {
+            String terms = normalizedQuery.toLowerCase();
+            businesses.stream()
+                .filter(business -> {
+                    String haystack = (business.getName() + " " + business.getCategory() + " " +
+                        products.stream()
+                            .filter(product -> business.getId().equals(product.getBusinessId()))
+                            .map(Product::getName)
+                            .reduce("", (left, right) -> left + " " + right))
+                        .toLowerCase();
+                    return haystack.contains(terms)
+                        || terms.contains("lanche") && haystack.contains("lanche")
+                        || terms.contains("papel") && haystack.contains("papel")
+                        || terms.contains("mercado") && haystack.contains("mercado")
+                        || terms.contains("caf") && haystack.contains("caf");
+                })
+                .forEach(business -> rankedIds.add(business.getId()));
+        }
+
+        if (rankedIds.isEmpty()) {
+            businesses.forEach(business -> rankedIds.add(business.getId()));
+        }
+
+        List<AISearchResponseDTO.LocalBusinessDTO> recommendations = rankedIds.stream()
+            .map(id -> businesses.stream()
+                .filter(business -> business.getId().equals(id))
+                .findFirst()
+                .orElse(null))
+            .filter(business -> business != null)
+            .map(business -> toSearchBusiness(business, products, normalizedQuery))
+            .toList();
+
+        return new AISearchResponseDTO(
+            "A IA encontrou " + recommendations.size()
+                + " estabelecimento(s) perto de " + (originLocation == null
+                    ? "Senac Canoas" : originLocation)
+                + " para \"" + normalizedQuery + "\".",
+            recommendations
+        );
+    }
+
+    private LinkedHashSet<Long> rankWithOllama(
+        String query,
+        String originLocation,
+        String catalog
+    ) {
+        LinkedHashSet<Long> ids = new LinkedHashSet<>();
+        if (catalog.isBlank()) {
+            return ids;
+        }
+
+        String prompt = """
+            Ordene os estabelecimentos do catálogo de acordo com esta busca:
+            Busca: %s
+            Origem: %s
+
+            CATÁLOGO:
+            %s
+
+            Retorne somente os IDs dos estabelecimentos mais relevantes,
+            separados por vírgula, sem nomes ou explicações.
+            """.formatted(query, originLocation == null ? "Senac Canoas" : originLocation, catalog);
+
+        try {
+            byte[] responseBytes = restClient.post()
+                .uri("/api/chat")
+                .body(Map.of(
+                    "model", model,
+                    "stream", false,
+                    "options", Map.of("temperature", 0.1),
+                    "messages", List.of(
+                        Map.of("role", "system", "content",
+                            "Você recomenda estabelecimentos locais usando somente o catálogo fornecido."),
+                        Map.of("role", "user", "content", prompt)
+                    )
+                ))
+                .retrieve()
+                .body(byte[].class);
+
+            if (responseBytes == null || responseBytes.length == 0) {
+                return ids;
+            }
+
+            JsonNode response = objectMapper.readTree(
+                new String(responseBytes, StandardCharsets.UTF_8)
+            );
+            String content = response.path("message").path("content").asText("");
+            for (String part : content.split("[^0-9]+")) {
+                if (!part.isBlank()) {
+                    try {
+                        ids.add(Long.parseLong(part));
+                    } catch (NumberFormatException ignored) {
+                    }
+                }
+            }
+        } catch (RestClientException | JacksonException ignored) {
+            return ids;
+        }
+        return ids;
+    }
+
+    private AISearchResponseDTO.LocalBusinessDTO toSearchBusiness(
+        Business business,
+        List<Product> products,
+        String query
+    ) {
+        String normalizedQuery = query.toLowerCase();
+        String category = business.getCategory() == null ? "" : business.getCategory().toLowerCase();
+        List<AISearchResponseDTO.LocalProductDTO> localProducts = products.stream()
+            .filter(product -> business.getId().equals(product.getBusinessId()))
+            .filter(product -> normalizedQuery.isBlank()
+                || product.getName().toLowerCase().contains(normalizedQuery)
+                || normalizedQuery.contains("lanche") && category.contains("lanche")
+                || normalizedQuery.contains("caf") && category.contains("caf")
+                || normalizedQuery.contains("barato") && product.getPrice() != null
+                    && product.getPrice().doubleValue() <= 15)
+            .map(product -> new AISearchResponseDTO.LocalProductDTO(
+                product.getId(),
+                product.getName(),
+                product.getPrice() == null ? null : product.getPrice().doubleValue(),
+                "#EAB338",
+                product.getImageUrl()
+            ))
+            .toList();
+
+        List<AISearchResponseDTO.LocalProductDTO> visibleProducts =
+            localProducts.isEmpty()
+                ? products.stream()
+                    .filter(product -> business.getId().equals(product.getBusinessId()))
+                    .limit(3)
+                    .map(product -> new AISearchResponseDTO.LocalProductDTO(
+                        product.getId(),
+                        product.getName(),
+                        product.getPrice() == null ? null : product.getPrice().doubleValue(),
+                        "#EAB338",
+                        product.getImageUrl()
+                    ))
+                    .toList()
+                : localProducts;
+
+        String displayCategory = business.getCategory() == null ? "Comércio" : business.getCategory();
+        return new AISearchResponseDTO.LocalBusinessDTO(
+            business.getId(),
+            business.getUserId(),
+            business.getName(),
+            displayCategory,
+            business.getAddress(),
+            business.getOpeningHours(),
+            4.8,
+            50,
+            5,
+            true,
+            business.getImageUrl(),
+            null,
+            null,
+            visibleProducts
+        );
     }
 }

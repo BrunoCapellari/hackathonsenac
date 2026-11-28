@@ -72,11 +72,19 @@ Qwen 2.5 3B: modelo utilizado pelo sistema.
 # comandos para instalar dependências e subir o back-end
 ```
 
+Em um banco PostgreSQL já existente, adicione a coluna de imagem do estabelecimento antes de iniciar o backend atualizado:
+
+```bash
+psql -U postgres -d postgres -f data/add_establishment_image_url.sql
+```
+
 ### Front-end
 
 ```bash
 # comandos para instalar dependências e subir o front-end
 ```
+
+Abra a aba **Gerenciar** para cadastrar ou editar estabelecimentos e produtos. As imagens podem ser selecionadas no dispositivo ou informadas por URL; imagens selecionadas são armazenadas no banco como data URLs. Configure `EXPO_PUBLIC_USER_ID` com um ID de proprietário existente se não for `1`; esse filtro de proprietário é apenas para a interface de demonstração e não protege a API.
 
 ## CI/CD
 

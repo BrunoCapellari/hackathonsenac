@@ -65,11 +65,19 @@ Describe how the repository is organized. Adjust the example below to the team's
 # commands to install dependencies and start the back-end
 ```
 
+For an existing PostgreSQL database, add the establishment image column before starting the updated backend:
+
+```bash
+psql -U postgres -d postgres -f data/add_establishment_image_url.sql
+```
+
 ### Front-end
 
 ```bash
 # commands to install dependencies and start the front-end
 ```
+
+Open the **Manage** tab to create or edit stores and products. Images can be selected from the device or entered as an image URL; selected images are stored in the database as data URLs. Set `EXPO_PUBLIC_USER_ID` to an existing owner ID when it is not `1`; the owner filter is for the demo UI and is not API authorization.
 
 ## CI/CD
 

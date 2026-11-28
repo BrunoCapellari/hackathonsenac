@@ -13,6 +13,8 @@ public record BusinessRequestDTO(
 
     String address,
 
-    String openingHours
+    String openingHours,
+
+    String imageUrl
 
 ) {}
